@@ -1,0 +1,164 @@
+# Extended D# language documentation with detailed explanations and code examples
+
+extended_dsharp_doc = """
+D# Language - Full Documentation
+
+Welcome to the D# programming language! This document contains all the current features, functions, syntax, and examples for working with D# in your custom interpreter.
+
+────────────────────────────────────────────
+1. PRINTING TO SCREEN
+────────────────────────────────────────────
+Function:
+  function.d#.print(text, color)
+
+Description:
+  Prints the provided text to the screen. Optional second argument sets the color.
+  If no color is specified, default is white.
+
+Parameters:
+  - text: The message to display
+  - color: Optional string indicating color (e.g., "red", "green", "blue")
+
+Examples:
+  function.d#.print("Hello, world!")
+  function.d#.print("Important message", "yellow")
+
+────────────────────────────────────────────
+2. VARIABLES AND MATH
+────────────────────────────────────────────
+Description:
+  D# supports standard variable assignment and arithmetic expressions.
+
+Examples:
+  x = 10
+  y = 5
+  function.d#.print(x + y)    # Output: 15
+  function.d#.print(x - y)    # Output: 5
+
+────────────────────────────────────────────
+3. COMMENTS
+────────────────────────────────────────────
+Syntax:
+  -- this is a comment
+
+Description:
+  Lines starting with `--` are ignored by the interpreter.
+
+Example:
+  -- This line does nothing
+
+────────────────────────────────────────────
+4. CONDITIONS
+────────────────────────────────────────────
+Function:
+  function.d#.if(condition):
+      # code block
+
+Description:
+  Executes the block if the condition is true.
+
+Example:
+  x = 5
+  function.d#.if(x == 5):
+      function.d#.print("x is five")
+
+────────────────────────────────────────────
+5. LOOPS
+────────────────────────────────────────────
+Function:
+  function.d#.while(condition):
+      # code block
+
+Description:
+  Repeats the block while the condition is true.
+
+Example:
+  x = 0
+  function.d#.while(x < 3):
+      function.d#.print(x)
+      x = x + 1
+
+────────────────────────────────────────────
+6. FILE OPERATIONS
+────────────────────────────────────────────
+a) Opening a file
+  function.d#.open.file("filename.txt")
+
+b) Writing to a file
+  function.d#.write("Hello file!")
+
+c) Appending to a file
+  function.d#.add.to.file("filename.txt", "More text")
+
+d) Reading a file
+  function.d#.read.file("filename.txt")
+
+e) Closing a file
+  function.d#.close()
+
+Examples:
+  function.d#.open.file("notes.txt")
+  function.d#.write("My first note")
+  function.d#.close()
+
+────────────────────────────────────────────
+7. SAVING AND LOADING D# CODE
+────────────────────────────────────────────
+a) Saving code to a .d# file
+  function.d#.save.code("main.d#", "code here")
+
+b) Loading and executing code from file
+  function.d#.load.code("main.d#")
+
+Example:
+  function.d#.save.code("main.d#", "x = 1\\nfunction.d#.print(x)")
+  function.d#.load.code("main.d#")
+
+────────────────────────────────────────────
+8. DATA TYPES
+────────────────────────────────────────────
+- String: "text"
+- Integer: 1, 2, 3
+- Boolean: true, false
+
+Example:
+  name = "Alex"
+  age = 20
+  is_admin = true
+
+────────────────────────────────────────────
+9. DEFINING FUNCTIONS
+────────────────────────────────────────────
+Function:
+  function()
+
+Description:
+  Define your own logic blocks. (Coming soon)
+
+────────────────────────────────────────────
+10. COLOR FORMATTING
+────────────────────────────────────────────
+You can color output using:
+
+  function.d#.print("Text", "blue")
+
+Supported colors:
+  - red
+  - green
+  - blue
+  - yellow
+  - cyan
+  - magenta
+  - white
+
+────────────────────────────────────────────
+More features coming soon...
+────────────────────────────────────────────
+"""
+
+# Save the extended documentation to a file
+extended_doc_path = "/mnt/data/dsharp_full_documentation.txt"
+with open(extended_doc_path, "w") as file:
+    file.write(extended_dsharp_doc)
+
+extended_doc_path
