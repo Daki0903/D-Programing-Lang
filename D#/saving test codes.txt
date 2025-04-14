@@ -1,0 +1,55 @@
+# Globalni rečnik za promenljive
+variables = {}
+
+def interpret(line):
+    line = line.strip()
+
+    # Obrada komentara (komentar počinje sa '--')
+    if line.startswith("--"):
+        return  # Ignoriši komentar
+    
+    # Dodela promenljive (x = 10)
+    elif "=" in line:
+        parts = line.split("=")
+        var_name = parts[0].strip()
+        value = evaluate_expression(parts[1].strip())
+
+        variables[var_name] = value
+        print(f"{var_name} = {value}")
+    
+    # Sabiranje i matematičke operacije (direct print za rezultate)
+    elif "function.d#.print(" in line:
+        expression = line[len("function.d#.print("):-1].strip()
+        value = evaluate_expression(expression)
+        print(value)
+    
+    # Ako komanda nije prepoznata
+    else:
+        print(f"Unknown command: {line}")
+
+
+# Evaluacija izraza (sabiranje, oduzimanje, i druge operacije)
+def evaluate_expression(expr):
+    try:
+        # Pokušaj evaluaciju izraza koristeći promenljive
+        return eval(expr, {}, variables)
+    except Exception as e:
+        print(f"Error in expression: {e}")
+        return None
+
+
+# Glavna petlja programa (učitavanje koda liniju po liniju)
+def run_program():
+    print("🟢 Welcome to D# language! (type 'exit' to quit)")
+    while True:
+        try:
+            line = input(">>> ")
+            if line.strip().lower() == "exit":
+                break
+            interpret(line)
+        except Exception as e:
+            print(f"Error: {e}")
+
+
+# Pokreni program
+run_program()
